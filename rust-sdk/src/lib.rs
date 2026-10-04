@@ -5,6 +5,7 @@
 
 pub mod client;
 pub mod cross_contract;
+pub mod error;
 pub mod events;
 pub mod network;
 pub mod retry;
@@ -12,8 +13,12 @@ pub mod signing;
 pub mod treasury_client;
 pub mod types;
 
-pub use client::{ClientError, KeeperClient};
+pub use client::{
+    ClientError, InvocationRequest, KeeperClient, KeeperRegistryClient, RegistryClientError,
+    RpcTransport, SignedTransaction, SimulationOutcome,
+};
 pub use cross_contract::{CrossContractInvocation, KeeperRegistryCrossContract};
+pub use error::{CallContext, Redacted};
 pub use events::{
     EventDecodeError, FeesSweptEvent, InitializedEvent, KeeperEvent, PausedEvent,
     RewardsWithdrawnEvent, TaskCancelledEvent, TaskClaimedEvent, TaskExecutedEvent,
